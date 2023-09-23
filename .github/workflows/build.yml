@@ -13,6 +13,10 @@ jobs:
 
       - uses: mr-smithers-excellent/docker-build-push@v3
         name: Build & push Docker image
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
+          KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
         with:
           image: dmore/forkrefresh
           tags: v1, latest
@@ -22,7 +26,3 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          env:
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
-              KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
