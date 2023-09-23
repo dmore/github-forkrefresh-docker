@@ -14,8 +14,8 @@ Overall a github fork refresher the oiginal project from your public forks so th
 
 - Needs a list of the public repos you want to keep updated from your original projects.
 
-- If used locally works with the Github token, not the OS/Keychain currently. As is containerised, it needs 
-to access the host and don't want to expose it.
+- This variant if used locally works with the Github token, (not the OS/Keychain currently). As is containerised, container needs 
+access to the host and don't want to expose either. 
 
 
 What does it do:
