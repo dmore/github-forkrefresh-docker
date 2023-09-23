@@ -40,7 +40,8 @@ What does it do:
 
 Distroless:
 ===========
-    - uses distroless from google. Thin is good...
+    - uses distroless from google. Thin as good...
+    - also go on ubuntu as github expects it.
 
 Docker build:
 ============
