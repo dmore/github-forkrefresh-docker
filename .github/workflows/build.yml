@@ -6,7 +6,8 @@ jobs:
   run-tests:
     #if: ${{ github.actor != 'dependabot[bot]' }}
     name: Build Tests
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: gcr.io/distroless/static-debian11
     steps:
       - uses: actions/checkout@v3
         name: Check out code
