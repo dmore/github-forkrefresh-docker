@@ -14,6 +14,9 @@ To run this locally you will need :
 - This variant if used locally works with the Github token, (not the OS/Keychain currently). As is containerised, container needs 
 access to the host and don't want to expose either. 
 
+Neeeext
+=======
+So next I will try to set github events to handle the build and run. That way there is no need to a GITHUB_TOKEN locally.. nor the need to use OS/Keychain will be needed either.
 
 What does it do:
 ===============
