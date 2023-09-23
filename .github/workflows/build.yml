@@ -1,0 +1,19 @@
+steps:
+  - uses: actions/checkout@v1.0
+    name: Check out code
+
+  - uses: mr-smithers-excellent/docker-build-push@v3
+    name: Build & push Docker image
+    with:
+      image: dmore/forkrefresh
+      tags: v1, latest
+      #registry: registry-url.io
+      #registry: index.docker.io/v1/
+      registry: https://index.docker.io/v2/ 
+      dockerfile: Dockerfile
+      username: ${{ secrets.DOCKER_USERNAME }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
+          KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
