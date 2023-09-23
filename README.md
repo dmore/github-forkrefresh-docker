@@ -116,14 +116,14 @@ How to run it:
 
 needs an env list like so
 
----------------------------
+```go
 myenvfile
 
 KEYCHAIN_APP_SERVICE=github-forkrefresh
 GITHUB_TOKEN=yertoken
 #GITHUB_TOKEN=
 KEYCHAIN_USERNAME=dmore
------------------------
+```
 
 ```go
 func fork_refresh_call(branch string, reponame string, method string) (string, error) {
