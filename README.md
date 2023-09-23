@@ -77,6 +77,8 @@ Uses env list. Will change that on the event side of things to get this built an
 
 docker run -d -t -i --env-file .env_list --name githubforkrefresh docker.io/library/app
 
+docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
+
 ```bash
     docker build --build-arg some_variable_name=a_value
     rm -rf packages*
@@ -167,6 +169,7 @@ func fork_refresh_call(branch string, reponame string, method string) (string, e
 
 
 ```
+
 
 Dependencies:
 =============

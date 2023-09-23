@@ -23,3 +23,8 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag forkrefresh:$(date +%s)
+
+      #docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
+    - uses: actions/checkout@v3
+    - name: Run the Docker image
+      run: docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
