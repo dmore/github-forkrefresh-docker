@@ -68,5 +68,7 @@ jobs:
           #context: "{{defaultContext}}"
           context: "{{defaultContext}}:app"
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          #tags: ${{ steps.meta.outputs.tags }}
+          #tags: user/app:latest
+          tags: dmore/forkrefresh:latest
           labels: ${{ steps.meta.outputs.labels }}
