@@ -1,0 +1,13 @@
+[
+  "dmore/tfsec-terraform-scanner",
+  "dmore/okta-quarkus-Java11-app-example-JWT-RBAC-MicroProfile-security-spec-JWT-OIDC-auth",
+  "dmore/dependency-jwt-simple-secure-standard-conformant-impl-rust",
+  "dmore/paseto-platform-agnostic-security-tokens",
+  "dmore/biscuit-delegated-decentr-capabil-based-auth-token",
+  "dmore/github-actions-goat",
+  "dmore/secure-repo-pin-github-actions-commitsha",
+  "dmore/atmos-simplygenius",
+  "dmore/terraform-aws-cicd",
+  "dmore/cloud-platform-terraform-aws-sso",
+  "dmore/aws-multi-region-cicd-with-terraform"
+]     
