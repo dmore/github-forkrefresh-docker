@@ -10,10 +10,15 @@ jobs:
 
   build:
 
-    #runs-on: ubuntu-latest
-    #runs-on: ubuntu-18.04
-    runs-on: ubuntu-20.04
-    
+    runs-on: ubuntu-latest
+    env:
+      GO111MODULE: "on"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
+      KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
+    defaults:
+      run:
+        working-directory: app
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image

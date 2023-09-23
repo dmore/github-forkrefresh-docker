@@ -7,9 +7,14 @@ jobs:
     #if: ${{ github.actor != 'dependabot[bot]' }}
     name: Build Tests
     runs-on: ubuntu-latest
-    #runs-on: ubuntu:latest nop
-    #runs-on: golang:1.21.1-bookworm
-    #runs-on: golang:1.21
+    env:
+      GO111MODULE: "on"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
+      KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
+    defaults:
+      run:
+        working-directory: app
     steps:
       - uses: actions/checkout@v3
         name: Check out code
@@ -23,16 +28,8 @@ jobs:
         with:
           image: dmore/forkrefresh
           tags: v1, latest
-          #buildArgs:
-          #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          #  KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
-          #  KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
-          #use default
-          #registry: registry-url.io
-          #registry: index.docker.io/v1/
-          #registry: index.docker.io/v1
           registry: docker.io
-          #registry: https://index.docker.io/v2/ 
-          dockerfile: app/Dockerfile
+          dockerfile: Dockerfile
+          #dockerfile: app/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
