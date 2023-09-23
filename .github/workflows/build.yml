@@ -6,9 +6,9 @@ jobs:
   run-tests:
     #if: ${{ github.actor != 'dependabot[bot]' }}
     name: Build Tests
-    #runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     #runs-on: gcr.io/distroless/static-debian11
-    runs-on: golang:1.21
+    #runs-on: golang:1.21
     steps:
       - uses: actions/checkout@v3
         name: Check out code
@@ -22,6 +22,10 @@ jobs:
         with:
           image: dmore/forkrefresh
           tags: v1, latest
+          buildArgs:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
+            KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
           #use default
           #registry: registry-url.io
           #registry: index.docker.io/v1/
