@@ -22,7 +22,7 @@ Github workflows
 - Go : builds the go app and makes sure deps work.
 - Docker: builds the docker app
 - DockerHub: builds and pushes the docker container 
-- Scan Vulnerabilities
+- Scan go Vulnerabilities
   
 What does it do:
 ===============
