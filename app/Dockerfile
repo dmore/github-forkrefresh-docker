@@ -17,8 +17,6 @@ RUN go test -v
 
 RUN CGO_ENABLED=0 go build -o /go/bin/app
 
-# The application log will be redirected to the main docker container process's stdout, so # that it will show up in the container 
-
 FROM gcr.io/distroless/static-debian11
 
 COPY --from=build /app/repos_repo.json /

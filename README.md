@@ -2,21 +2,23 @@
 github-forkrefresh-docker
 =========================
 
-A variant of the github-forkrefresh go mini project. This time dockerised so it can be triggered from within github workflow events...So no need to use the secrets locally. 
+A variant of the github-forkrefresh go mini project I did before. 
 
-Next, I will try to set github events to handle the build and run. 
+This time dockerised so it can be triggered from within github workflow events...So, the target for this is to not need to use the github secret locally and create a workflow event that handles that within github... So next I will try to set github events to handle the build and run. That way there is no need to a GITHUB_TOKEN locally.. nor the need to use OS/Keychain will be needed either.
 
-That way there is no need to a GITHUB_TOKEN locally.. nor the OS/Keychain is needed for now.
+Overall a github fork refresher run on the original project branches (from your public forks) so they are updated. 
 
-Overall a github fork refresher the oiginal project from your public forks so they are updated. 
+To run this locally you will need :
+====================================
+- GITHUB_TOKEN
+- Needs a list of the public repos you want to keep updated from your original projects. I put a few of mine in there as a sample. 
 
-- Needs GITHUB_TOKEN
+- This variant if used locally works with the Github token, (not the OS/Keychain currently). As is containerised, container needs 
+access to the host and don't want to expose either. 
 
-- Needs a list of the public repos you want to keep updated from your original projects.
-
-- If used locally works with the Github token, not the OS/Keychain currently. As is containerised, it needs 
-to access the host and don't want to expose it.
-
+Neeeext
+=======
+So next I will try to set github events to handle the build and run. That way there is no need to a GITHUB_TOKEN locally.. nor the need to use OS/Keychain will be needed either.
 
 What does it do:
 ===============
@@ -36,30 +38,9 @@ What does it do:
     tells github to refresh the fork from the original so your public forks are refreshed from the source.
 
 
-What does it need:
-==================
-
-    a) it needs your public fork repos as above. youruser/yourpublicfork
-
-    b|) it also uses go-keyring to pull the GITHUB_TOKEN secret from the OS/Keychain
-    so you'll need to store the token in the OS/keychain first and retrieve it from there.
-
-    Otherwise feel free to change the code and use an env var instead. That code is commented out.
-
-    c) THe github personal token you need for this is classic and have workflow permissions token) as well as full private repo permissions. that's all it needs.
-
-    d) you can inject it on a line commmented out. 
-
-    func main() {
-
-    //uncomment to store your secret o keychain
-    //store_secret_on_keychain("GITHUB_TOKEN_WITH_RIGHTS")
-    token_variable = retrieve_secret_from_keychain()
-
 Distroless:
 ===========
-    - uses distroless from google. 
-
+    - uses distroless from google. Thin is good...
 
 Docker build:
 ============
@@ -136,14 +117,14 @@ How to run it:
 
 needs an env list like so
 
----------------------------
+```go
 myenvfile
 
 KEYCHAIN_APP_SERVICE=github-forkrefresh
 GITHUB_TOKEN=yertoken
 #GITHUB_TOKEN=
 KEYCHAIN_USERNAME=dmore
------------------------
+```
 
 ```go
 func fork_refresh_call(branch string, reponame string, method string) (string, error) {
