@@ -7,7 +7,8 @@ jobs:
     #if: ${{ github.actor != 'dependabot[bot]' }}
     name: Build Tests
     #runs-on: ubuntu-latest
-    runs-on: gcr.io/distroless/static-debian11
+    #runs-on: gcr.io/distroless/static-debian11
+    runs-on: golang:1.21
     steps:
       - uses: actions/checkout@v3
         name: Check out code
