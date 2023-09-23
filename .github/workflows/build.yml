@@ -6,7 +6,8 @@ jobs:
   run-tests:
     #if: ${{ github.actor != 'dependabot[bot]' }}
     name: Build Tests
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     #runs-on: golang:1.21.1-bookworm
     #runs-on: golang:1.21
     steps:
