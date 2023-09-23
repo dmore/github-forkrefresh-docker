@@ -10,9 +10,10 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
-
+    #runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+    
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file app/Dockerfile --tag forkrefreshe:$(date +%s)
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
