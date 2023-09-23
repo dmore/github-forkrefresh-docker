@@ -24,7 +24,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag forkrefresh:$(date +%s)
 
-      #docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
-    - uses: actions/checkout@v3
-    - name: Run the Docker image
-      run: docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
+      #docker: Error response from daemon: pull access denied for forkrefresh, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+      #docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh:1695492549
+  #  - uses: actions/checkout@v3
+  #  - name: Run the Docker image
+  #    run: docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
