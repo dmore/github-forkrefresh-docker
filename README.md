@@ -2,7 +2,9 @@
 github-forkrefresh-docker
 =========================
 
-A variant of the github-forkrefresh go mini project. This time dockerised so it can be triggered from within github workflow events...So, the target for this is to not need to use the github secret locally and create a workflow event that handles that within github... So next I will try to set github events to handle the build and run. That way there is no need to a GITHUB_TOKEN locally.. nor the need to use OS/Keychain will be needed either.
+A variant of the github-forkrefresh go mini project I did before. 
+
+This time dockerised so it can be triggered from within github workflow events...So, the target for this is to not need to use the github secret locally and create a workflow event that handles that within github... So next I will try to set github events to handle the build and run. That way there is no need to a GITHUB_TOKEN locally.. nor the need to use OS/Keychain will be needed either.
 
 Overall a github fork refresher run on the original project branches (from your public forks) so they are updated. 
 
