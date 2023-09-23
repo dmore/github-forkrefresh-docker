@@ -36,26 +36,6 @@ What does it do:
     tells github to refresh the fork from the original so your public forks are refreshed from the source.
 
 
-What does it need:
-==================
-
-    a) it needs your public fork repos as above. youruser/yourpublicfork
-
-    b|) it also uses go-keyring to pull the GITHUB_TOKEN secret from the OS/Keychain
-    so you'll need to store the token in the OS/keychain first and retrieve it from there.
-
-    Otherwise feel free to change the code and use an env var instead. That code is commented out.
-
-    c) THe github personal token you need for this is classic and have workflow permissions token) as well as full private repo permissions. that's all it needs.
-
-    d) you can inject it on a line commmented out. 
-
-    func main() {
-
-    //uncomment to store your secret o keychain
-    //store_secret_on_keychain("GITHUB_TOKEN_WITH_RIGHTS")
-    token_variable = retrieve_secret_from_keychain()
-
 Distroless:
 ===========
     - uses distroless from google. 
