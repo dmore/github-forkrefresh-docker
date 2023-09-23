@@ -4,6 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GO111MODULE: "on"
     defaults:
       run:
         working-directory: app

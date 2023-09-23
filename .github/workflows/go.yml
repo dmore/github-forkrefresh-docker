@@ -4,6 +4,11 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GO111MODULE: "on"
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      KEYCHAIN_APP_SERVICE: ${{ secrets.KEYCHAIN_APP_SERVICE }}
+      KEYCHAIN_USERNAME: ${{ secrets.KEYCHAIN_USERNAME }}
     defaults:
       run:
         working-directory: app
