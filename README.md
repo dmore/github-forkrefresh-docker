@@ -6,9 +6,10 @@ A variant of the github-forkrefresh go mini project. This time dockerised so it 
 
 Overall a github fork refresher run on the original project branches (from your public forks) so they are updated. 
 
-- Needs GITHUB_TOKEN
-
-- Needs a list of the public repos you want to keep updated from your original projects.
+To run this locally you will need :
+====================================
+- GITHUB_TOKEN
+- Needs a list of the public repos you want to keep updated from your original projects. I put a few of mine in there as a sample. 
 
 - This variant if used locally works with the Github token, (not the OS/Keychain currently). As is containerised, container needs 
 access to the host and don't want to expose either. 
