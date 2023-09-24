@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	//"time"
+	"time"
 	"io/ioutil"
 	"io"
 	"log"
@@ -72,7 +72,6 @@ func retrieve_secret_from_keychain() (string){
         log.Fatal(err)
     }
 
-    log.Println(secret)
     return secret
 }
 
@@ -110,19 +109,77 @@ func main() {
 		token_variable = github_token_env_var
 	}
 
-	//refactor to pull dynamically.
-	//file must be json array not json
-	absPath, _ := filepath.Abs("repos_repo.json")
-	f, err := os.Open(absPath)
-	if err != nil {
-	    log.Fatal(err)
-	}
-	log.Println("Successfully Opened repos_repo.json")
-	defer f.Close()
+	var github_gist = os.Getenv("REPOS_GIST")
 
-	//unmarshall
-	byteValue, _ := ioutil.ReadAll(f)   
 	var arr []string
+	var err error
+	//var getErr = nil 
+	//var readErr = nil 
+	
+	if (len(github_gist) > 0){
+
+		log.Println("downloading repos list from gist")
+		log.Println("" + github_gist)
+		var url = github_gist
+		
+		var gistClient = http.Client{
+			Timeout: time.Second * 2, // Timeout after 2 seconds
+		}
+
+		var req, err = http.NewRequest(http.MethodGet, url, nil)
+		if err != nil {
+			log.Println("unable to pull down yer gist")
+			log.Fatal(err)
+			os.Exit(1)
+		}
+
+		req.Header.Set("User-Agent", "test")
+
+		var res, getErr = gistClient.Do(req)
+		if getErr != nil {
+			log.Println("error http get when pulling down gist")
+			log.Fatal(getErr)
+			os.Exit(1)
+		}
+
+		if res.Body != nil {
+			defer res.Body.Close()
+		}
+
+		var body, readErr = ioutil.ReadAll(res.Body)
+		if readErr != nil {
+			log.Println("error reading the gist")
+			log.Fatal(readErr)
+			os.Exit(1)
+		}
+		
+		var err3 = json.Unmarshal([]byte(body), &arr)
+		if err3 != nil {
+	      fmt.Println("error3:", err3)
+	      os.Exit(1)
+	    }
+	}else{
+		/** using repos_repo.json file **/
+		//refactor to pull dynamically.
+		//file must be json array not json
+		absPath, _ := filepath.Abs("repos_repo.json")
+		f, err := os.Open(absPath)
+		if err != nil {
+		    log.Fatal(err)
+		}
+		log.Println("Successfully Opened repos_repo.json")
+		defer f.Close()
+
+		//unmarshall
+		byteValue, _ := ioutil.ReadAll(f)   
+		err3 := json.Unmarshal([]byte(byteValue), &arr)
+		if err3 != nil {
+	      fmt.Println("error3:", err3)
+	      os.Exit(1)
+	    }
+	}
+
+	
 	//var result map[string]interface{} not working. 
 	//in memory test works fine also
 	/**
@@ -137,11 +194,7 @@ func main() {
     }
     **/
 	
-	err3 := json.Unmarshal([]byte(byteValue), &arr)
-	if err3 != nil {
-      fmt.Println("error3:", err3)
-      os.Exit(1)
-    }
+	
     log.Printf("Unmarshaled: %s", arr)
     //loop through
     for i := 0; i < len(arr); i++ {

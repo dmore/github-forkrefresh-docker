@@ -12,6 +12,7 @@ RUN go vet -v
 ENV GITHUB_TOKEN=""
 ENV KEYCHAIN_APP_SERVICE="github-forkrefresh"
 ENV KEYCHAIN_USERNAME="dmore"
+ENV REPOS_GIST="https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json"
 
 RUN go test -v
 

@@ -74,12 +74,38 @@ $ docker scout quickview
   Base image  distroless/static:nonroot  │    0C     0H     0M     0L   
 
 ```
-local docker run test ok
-=========================
+local docker run test
+=====================
 ```bash
 docker login
 docker run -d -t -i --env-file .env_list --name githubforkrefresh dmore/github-forkrefresh-docker:main
 ```
+
+```bash
+ docker run -d -t -i --env-file .env_list --name githubforkrefresh docker.io/library/app
+```
+
+Using a gist:
+============
+- Adding an env var to override the repos config with a public gist. Here is a sample one.
+
+  https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json
+
+  curl -XGET https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json
+
+    [
+      "dmore/tfsec-terraform-scanner",
+      "dmore/okta-quarkus-Java11-app-example-JWT-RBAC-MicroProfile-security-spec-JWT-OIDC-auth",
+      "dmore/dependency-jwt-simple-secure-standard-conformant-impl-rust",
+      "dmore/paseto-platform-agnostic-security-tokens",
+      "dmore/biscuit-delegated-decentr-capabil-based-auth-token",
+      "dmore/github-actions-goat",
+      "dmore/secure-repo-pin-github-actions-commitsha",
+      "dmore/atmos-simplygenius",
+      "dmore/terraform-aws-cicd",
+      "dmore/cloud-platform-terraform-aws-sso",
+      "dmore/aws-multi-region-cicd-with-terraform"
+    ]
 
 Local go build
 ==============
@@ -101,8 +127,8 @@ docker compose up -d
 docker compose down
 ```
 
-needs an env list like so
-==========================
+needs an env list .env_list
+===========================
 ```go
 myenvfile
 
@@ -110,7 +136,7 @@ KEYCHAIN_APP_SERVICE=github-forkrefresh
 GITHUB_TOKEN=yertoken
 #GITHUB_TOKEN=
 KEYCHAIN_USERNAME=dmore
-
+REPOS_GIST=https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json
 ```
 
 ```go
