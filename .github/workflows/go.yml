@@ -26,3 +26,5 @@ jobs:
         run: go build -o packages/app
       - name: Test with the Go CLI
         run: go test
+      - name: Run with the Go CLI
+        run: go run packages/app
