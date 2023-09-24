@@ -1,15 +1,28 @@
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
-  - package-ecosystem: docker
-    directory: /app
-    schedule:
-      interval: monthly
-  - package-ecosystem: gomod
-    open-pull-requests-limit: 10
-    directory: /app
-    schedule:
-      interval: weekly
+- package-ecosystem: "gomod"
+  directory: "/app"
+  schedule:
+    interval: "daily" 
+  #target-branch: "component-updates" 
+- package-ecosystem: "docker"
+  open-pull-requests-limit: 10
+  directory: "/app/Dockerfile"
+  schedule:
+    interval: "daily" 
+  #target-branch: "component-updates" 
+- package-ecosystem: "docker"
+  open-pull-requests-limit: 10
+  directory: "/app/Dockerfile.distroless"
+  schedule:
+    interval: "daily" 
+- package-ecosystem: "docker"
+  open-pull-requests-limit: 10
+  directory: "/app/Dockerfile.ubuntugo"
+  schedule:
+    interval: "daily" 
+  #target-branch: "component-updates"
+- package-ecosystem: "github-actions"
+  directory: /
+  schedule:
+    interval: "daily"
