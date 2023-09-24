@@ -74,23 +74,15 @@ $ docker scout quickview
   Base image  distroless/static:nonroot  │    0C     0H     0M     0L   
 
 ```
-Docker run:
-==========
-
-Uses env list. Will change that on the event side of things to get this built and run.
-
-docker run -d -t -i --env-file .env_list --name githubforkrefresh docker.io/library/app
-
-docker run -d -t -i --name githubforkrefresh docker.io/library/forkrefresh
-
+local docker run test ok
+=========================
 ```bash
-    docker build --build-arg some_variable_name=a_value
-    rm -rf packages*
-    cd github-forkrefresh/app
-    go build packages/app
+docker login
+docker run -d -t -i --env-file .env_list --name githubforkrefresh dmore/github-forkrefresh-docker:main
 ```
-Local build
-============
+
+Local go build
+==============
 
 ```bash
 #export GITHUB_TOKEN='leave out for now'
@@ -100,7 +92,6 @@ go build -o packages/app
 cd packages 
 cp ../repos_repo.json .
 ./app
-cat app.log
 ```
 
 Docker compose: 
@@ -110,22 +101,8 @@ docker compose up -d
 docker compose down
 ```
 
-How to build it:
-================
-```go
-    rm -rf packages*
-    cd github-forkrefresh/app
-    go build packages/app
-```
-How to run it:
-==============
-    cd github-forkrefresh/app
-    go run main.go
-
-    this is the core of it, if you just wanna know
-
 needs an env list like so
-
+==========================
 ```go
 myenvfile
 
