@@ -27,4 +27,4 @@ jobs:
       - name: Test with the Go CLI
         run: go test
       - name: Run with the Go CLI
-        run: go run packages/app
+        run: go run main.go
