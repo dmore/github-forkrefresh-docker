@@ -49,5 +49,4 @@ jobs:
         image: dmore/github-forkrefresh-docker:main
         #options: -v ${{ github.workspace }}:/app -e ABC=123
         options: -v ${{ github.workspace }}
-        run: |
-          /app
+        #run: /app
