@@ -91,6 +91,7 @@ Using a gist:
 
   https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json
 
+```bash
   curl -XGET https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json
 
     [
@@ -106,7 +107,7 @@ Using a gist:
       "dmore/cloud-platform-terraform-aws-sso",
       "dmore/aws-multi-region-cicd-with-terraform"
     ]
-
+```
 Local go build
 ==============
 
