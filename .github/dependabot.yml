@@ -1,12 +1,5 @@
 version: 2
 
-#registries:
-#  dockerhub:
-#    type: docker-registry
-#    url: https://registry.hub.docker.com
-#    username: ${{ secrets.DOCKER_USERNAME }}
-#    password: ${{ secrets.DOCKER_PASSWORD }}
-#    replaces-base: true
 defaults:
   run:
     working-directory: app
@@ -15,14 +8,12 @@ updates:
   directory: "/app"
   schedule:
     interval: "daily" 
-  #target-branch: "component-updates" 
 - package-ecosystem: "docker"
   #open-pull-requests-limit: 10
   #directory: "/app"
   directory: "/"
   schedule:
     interval: "daily" 
-  #target-branch: "component-updates" 
 - package-ecosystem: "github-actions"
   directory: /
   schedule:
