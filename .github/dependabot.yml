@@ -5,11 +5,11 @@ updates:
   directory: "/app"
   schedule:
     interval: "daily" 
-- package-ecosystem: "docker"
-  open-pull-requests-limit: 10
-  directory: "/"
-  schedule:
-    interval: "daily" 
+#- package-ecosystem: "docker"
+#  open-pull-requests-limit: 10
+#  directory: "/"
+#  schedule:
+#    interval: "daily" 
 - package-ecosystem: "docker"
   open-pull-requests-limit: 10
   directory: "/app"
