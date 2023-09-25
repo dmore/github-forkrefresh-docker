@@ -7,21 +7,10 @@ updates:
   #target-branch: "component-updates" 
 - package-ecosystem: "docker"
   open-pull-requests-limit: 10
-  directory: "/app/Dockerfile"
+  directory: "/app"
   schedule:
     interval: "daily" 
   #target-branch: "component-updates" 
-- package-ecosystem: "docker"
-  open-pull-requests-limit: 10
-  directory: "/app/Dockerfile.distroless"
-  schedule:
-    interval: "daily" 
-- package-ecosystem: "docker"
-  open-pull-requests-limit: 10
-  directory: "/app/Dockerfile.ubuntugo"
-  schedule:
-    interval: "daily" 
-  #target-branch: "component-updates"
 - package-ecosystem: "github-actions"
   directory: /
   schedule:
