@@ -11,7 +11,7 @@ Overall a github fork refresher run on the original project branches (from your 
 To run this locally you will need :
 ====================================
 - GITHUB_TOKEN
-- Needs a list of the public repos you want to keep updated from your original projects.
+- Needs a list of the public repos you want to keep updated from your original projects. (a private gist url will do)
 
 - This variant if used locally works with the Github token, (not the OS/Keychain currently). As is containerised, container needs 
 access to the host and don't want to expose either. 
