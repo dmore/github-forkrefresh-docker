@@ -7,9 +7,12 @@ updates:
     interval: "daily" 
 - package-ecosystem: "docker"
   open-pull-requests-limit: 10
-  #directory: "/app"
-  #directory: "/"
-  directory: "/*/"
+  directory: "/"
+  schedule:
+    interval: "daily" 
+- package-ecosystem: "docker"
+  open-pull-requests-limit: 10
+  directory: "/app"
   schedule:
     interval: "daily" 
 - package-ecosystem: "github-actions"
