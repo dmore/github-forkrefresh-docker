@@ -45,8 +45,8 @@ What does it do:
 Distroless and Ubuntu latest:
 ==============================
 
-    - uses distroless from google. I like it =) Thin as good...(and safer)
-    - also setup a Dockerfile with go onto ubuntu-latest as github expects it.
+    - uses distroless from google. I like it =) Thin is good...(also safer)
+    - also setup a Dockerfile with go onto ubuntu-latest (as github expects)
 
 
 Docker build:
