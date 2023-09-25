@@ -6,10 +6,7 @@ updates:
   schedule:
     interval: "daily" 
 - package-ecosystem: "docker"
-  defaults:
-  run:
-    working-directory: app
-  #open-pull-requests-limit: 10
+  open-pull-requests-limit: 10
   #directory: "/app"
   directory: "/"
   schedule:
