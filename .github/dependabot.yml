@@ -15,8 +15,9 @@ updates:
     interval: "daily" 
   #target-branch: "component-updates" 
 - package-ecosystem: "docker"
-  open-pull-requests-limit: 10
-  directory: "/app"
+  #open-pull-requests-limit: 10
+  #directory: "/app"
+  directory: "/"
   schedule:
     interval: "daily" 
   #target-branch: "component-updates" 
