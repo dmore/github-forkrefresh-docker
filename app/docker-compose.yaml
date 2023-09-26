@@ -6,7 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        #variable: a_value
         GITHUB_TOKEN: "yertoken"
         KEYCHAIN_APP_SERVICE: "github-forkrefresh"
         KEYCHAIN_USERNAME: "dmore"
