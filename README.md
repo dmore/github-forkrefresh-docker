@@ -10,6 +10,7 @@ Overall a github fork refresher run on the original project branches (from your 
 
 To run this locally you will need :
 ====================================
+
 - GITHUB_TOKEN
 - Needs a list of the public repos you want to keep updated from your original projects. (a private gist url will do)
 
@@ -87,6 +88,7 @@ docker run -d -t -i --env-file .env_list --name githubforkrefresh dmore/github-f
 
 Using a gist:
 ============
+
 - Adding an env var to override the repos config with a public gist. Here is a sample one.
 
   https://gist.githubusercontent.com/dmore/5c26c5c2484aa13736f22d80e8bf4e7e/raw/88ebe3b0d641fc7e8715bfe4056625ac2532953b/repos_repo.json
